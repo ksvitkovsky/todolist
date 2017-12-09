@@ -1,0 +1,30 @@
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 45px 1fr;
+  height: 100%;
+
+  .main__menu {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    z-index: 10;
+    background-color: #fafafa;
+  }
+  .main__menu-overlay {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 5px 0 10px -5px rgba(0, 0, 0, 0.2);
+  }
+  .main__todos {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    background-color: #fff;
+  }
+  .main__top-bar {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background-color: #db4c3f;
+  }
+}

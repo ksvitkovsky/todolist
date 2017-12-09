@@ -3,9 +3,10 @@ import * as ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 
 import "./app.scss";
+import { Main } from "./components";
 
 function App() {
-  return null;
+  return <Main />;
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
