@@ -9,19 +9,48 @@
     grid-row: 2/3;
     z-index: 10;
     background-color: #fafafa;
+    box-shadow: 3px 0 10px -5px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 575px) {
+      display: none;
+
+      &.main__menu--open {
+        display: block;
+        box-shadow: 6px 0 10px -5px rgba(0, 0, 0, 0.2);
+
+        ~ .main__menu-overlay {
+          display: block;
+        }
+      }
+    }
   }
+
+  .main__menu-button {
+    display: none;
+
+    @media (max-width: 575px) {
+      display: initial;
+    }
+  }
+
   .main__menu-overlay {
+    display: none;
     grid-column: 2/3;
     grid-row: 2/3;
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 5px 0 10px -5px rgba(0, 0, 0, 0.2);
   }
+
   .main__todos {
-    grid-column: 1/3;
+    grid-column: 2/3;
     grid-row: 2/3;
     background-color: #fff;
+
+    @media (max-width: 575px) {
+      grid-column: 1/3;
+    }
   }
+
   .main__top-bar {
     grid-column: 1/3;
     grid-row: 1/2;
