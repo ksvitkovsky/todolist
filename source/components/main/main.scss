@@ -27,6 +27,12 @@
 
   .main__menu-button {
     display: none;
+    width: 45px;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: none;
+    fill: #fff;
 
     @media (max-width: 575px) {
       display: initial;
