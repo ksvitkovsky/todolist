@@ -1,11 +1,17 @@
 .todos {
   padding: 30px 45px;
 
+  @media (max-width: 767px) {
+    padding: 30px 20px;
+  }
+
   .todos__header {
     margin: 0;
     font-size: 20px;
     font-weight: 400;
+    color: #333;
   }
+
   .todos__item {
     margin-top: 10px;
 
@@ -15,11 +21,14 @@
       clear: both;
     }
   }
+
   .todos__items {
+    max-width: 650px;
     margin: 30px 0 0 0;
     padding: 0;
     list-style: none;
   }
+
   .todos__todo-cancel {
     height: 32px;
     margin-left: 5px;
@@ -29,21 +38,24 @@
     outline: none;
     font-size: 13px;
     font-weight: 300;
+    color: #333;
 
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
   }
+
   .todos__todo-date {
     box-sizing: border-box;
     float: left;
-    width: 150px;
+    width: 100px;
     height: 36px;
     margin-left: -1px;
     padding-left: 10px;
     border: 1px solid #e4e4e4;
     border-radius: 0 4px 4px 0;
+    font-family: inherit;
     font-size: 14px;
     color: #666;
 
@@ -56,8 +68,10 @@
       border: none;
       border-bottom: 1px solid #e4e4e4;
       border-radius: 0;
+      line-height: 36px;
     }
   }
+
   .todos__todo-save {
     height: 32px;
     margin: 10px 0 15px 40px;
@@ -75,20 +89,28 @@
       cursor: pointer;
     }
   }
+
   .todos__todo-status {
     float: left;
     width: 40px;
     margin-top: 5px;
     fill: #666;
+
+    &:hover {
+      fill: #333;
+      cursor: pointer;
+    }
   }
+
   .todos__todo-text {
     box-sizing: border-box;
     float: left;
-    width: calc(100% - 200px);
+    width: calc(100% - 150px);
     height: 36px;
     padding-left: 10px;
     border: 1px solid #e4e4e4;
     border-radius: 4px 0 0 4px;
+    font-family: inherit;
     font-size: 14px;
     color: #666;
 
@@ -101,6 +123,7 @@
       border: none;
       border-bottom: 1px solid #e4e4e4;
       border-radius: 0;
+      line-height: 36px;
     }
   }
 }

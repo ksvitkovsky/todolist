@@ -15,16 +15,12 @@ export class Todos extends React.Component<TodosProps> {
         <ul className="todos__items">
           <li className="todos__item">
             <Icon className="todos__todo-status" type="completed" />
-            <input
-              className="todos__todo-text todos__todo-text--value"
-              disabled
-              type="text"
-            />
-            <input
-              className="todos__todo-date todos__todo-date--value"
-              disabled
-              type="date"
-            />
+            <span className="todos__todo-text todos__todo-text--value">
+              Write an article on MobX
+            </span>
+            <span className="todos__todo-date todos__todo-date--value">
+              Dec, 6
+            </span>
           </li>
           <li className="todos__item">
             <Icon className="todos__todo-status" type="incompleted" />
