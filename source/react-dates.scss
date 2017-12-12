@@ -1,0 +1,26 @@
+.SingleDatePicker {
+  margin-left: -1px;
+}
+.SingleDatePickerInput__withBorder {
+  border: none;
+}
+.DateInput {
+  width: auto;
+}
+.DateInput_input {
+  box-sizing: border-box;
+  float: left;
+  width: 100px;
+  height: 36px;
+  padding: 1px;
+  padding-left: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 0 4px 4px 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #666;
+}
+.CalendarMonth_caption strong {
+  font-weight: normal;
+}
