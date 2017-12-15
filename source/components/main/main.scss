@@ -42,6 +42,7 @@
     outline: none;
     background: none;
     fill: #fff;
+    cursor: pointer;
 
     @media (max-width: 767px) {
       display: initial;
@@ -54,6 +55,7 @@
     grid-row: 2/3;
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
   }
 
   .main__todos {
