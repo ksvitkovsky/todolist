@@ -7,31 +7,6 @@ import "./main.scss";
 import { Icon, Menu, Todos } from "..";
 import { Project, Todo } from "../../types";
 
-const defaultProjects = [observable({ id: "project1", name: "Project1" })];
-const defaultTodos = [
-  observable({
-    id: "todo0",
-    isCompleted: false,
-    projectId: null,
-    targetDate: null,
-    text: "Todo 0"
-  }),
-  observable({
-    id: "todo1",
-    isCompleted: false,
-    projectId: "project1",
-    targetDate: null,
-    text: "Todo 1"
-  }),
-  observable({
-    id: "todo2",
-    isCompleted: true,
-    projectId: "project1",
-    targetDate: null,
-    text: "Todo 2"
-  })
-];
-
 @observer
 export class Main extends React.Component {
   @observable activeProjectId: string;
