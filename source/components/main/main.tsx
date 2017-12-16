@@ -1,6 +1,6 @@
 import * as moment from "moment";
 import * as React from "react";
-import { action, computed, observable, transaction } from "mobx";
+import { action, computed, observable, reaction, transaction } from "mobx";
 import { observer } from "mobx-react";
 
 import "./main.scss";
@@ -37,8 +37,8 @@ export class Main extends React.Component {
   @observable activeProjectId: string;
   @observable filterMode: string = "all";
   @observable isMenuOpen: boolean = false;
-  @observable projects: Project[] = defaultProjects;
-  @observable todos: Todo[] = defaultTodos;
+  @observable projects: Project[] = [];
+  @observable todos: Todo[] = [];
 
   @computed
   get activeProject() {
@@ -58,6 +58,14 @@ export class Main extends React.Component {
         default:
           return true;
       }
+    });
+  }
+
+  @computed
+  get storeDataString() {
+    return JSON.stringify({
+      projects: this.projects,
+      todos: this.todos
     });
   }
 
@@ -84,15 +92,20 @@ export class Main extends React.Component {
   }
 
   @action.bound
-  addTodo(text: string, targetDate?: number) {
+  addTodo(
+    text: string,
+    targetDate?: number,
+    isCompleted: boolean = false,
+    projectId: string = this.activeProjectId
+  ) {
     this.todos.push(
       observable({
         id: text
           .toLowerCase()
           .split(" ")
           .join("_"),
-        isCompleted: false,
-        projectId: this.activeProjectId,
+        isCompleted,
+        projectId,
         targetDate,
         text
       })
@@ -111,13 +124,32 @@ export class Main extends React.Component {
     return this.handleHashChange;
   }
 
+  readFromStorage() {
+    const {
+      projects = [],
+      todos = []
+    }: { projects: Project[]; todos: Todo[] } =
+      JSON.parse(localStorage.getItem("todolist")) || {};
+
+    projects.forEach(project => this.addProject(project.name));
+    todos.forEach(todo =>
+      this.addTodo(todo.text, todo.targetDate, todo.isCompleted, todo.projectId)
+    );
+  }
+
   @action.bound
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  writeToStorage() {
+    localStorage.setItem("todolist", this.storeDataString);
+  }
+
   componentDidMount() {
     window.addEventListener("hashchange", this.handleHashChange());
+    this.readFromStorage();
+    reaction(() => this.storeDataString, () => this.writeToStorage());
   }
 
   componentWillUnmount() {

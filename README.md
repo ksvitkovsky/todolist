@@ -2,10 +2,10 @@
 
 Create a simple clone of one popular todo-application and try different approaches to state management with MobX
 
-* [ ] CRUD todos
-* [ ] projects
+* [x] CRUD todos
+* [x] projects
 * [ ] tags
-* [ ] local-storage
+* [x] local-storage
 * [ ] firebase-storage (extra)
 
 - typescript
