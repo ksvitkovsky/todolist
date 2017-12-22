@@ -1,5 +1,7 @@
 # TODOLIST
 
+[Demo](https://ksvitkovsky.github.io/todolist/build/index.html)
+
 Create a simple clone of one popular todo-application and try different
 approaches to state management with MobX.
 

@@ -2,6 +2,7 @@
   "name": "todolist",
   "version": "1.0.0",
   "scripts": {
+    "build": "webpack --config=webpack.prod.ts",
     "start": "webpack-dev-server --config=webpack.dev.ts --open"
   },
   "dependencies": {
